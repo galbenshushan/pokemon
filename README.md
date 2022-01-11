@@ -1,5 +1,4 @@
-# pokemon-app
-## Pokemon-Gottcha
+# Pokemon-Gottcha
     An application that exposes the user to the Pokemon world, built with React, Redux, JavaScript, and CSS.
 
 ## technologies used:
