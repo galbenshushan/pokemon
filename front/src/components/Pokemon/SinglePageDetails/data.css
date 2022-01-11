@@ -1,0 +1,311 @@
+.myProgress {
+    width: 100%;
+    background-color: #ddd;
+    border-radius: 12px;
+
+  }
+  
+.myProgressdark {
+    width: 100%;
+    background-color: rgb(39, 39, 39);
+    border-radius: 12px;
+    border: 1px solid rgb(187, 187, 187);
+
+  }
+  
+.myBar {
+    height: 1.3rem;
+    background-color: #2054ff;
+    text-align: center;
+    line-height: 30px;
+    color: white;
+    border-radius: 12px 12px  12px 12px;
+  }
+.myBardark {
+    height: 1.3rem;
+    background-color: #ffea28;
+    text-align: center;
+    line-height: 30px;
+    color: white;
+    border-radius: 12px 12px  12px 12px;
+  }
+
+  .right{
+      float: right;
+  }
+  .pokemonImagePage{
+    width: 25rem;
+}
+.evolution-line{
+  padding-top: 6rem;
+}
+
+.second-col{
+  flex-direction: column;
+}
+
+.table-roww{
+  display: inline-flex;
+  width:fit-content;
+}
+
+.arrow{
+width: 8rem;
+clear:both;   
+}
+
+.stars{
+  color: rgb(255, 208, 0);
+  font-size: 2rem;
+  position: relative;
+  left: 22rem;
+  bottom: 8rem;
+}
+
+@media only screen and (max-width: 1650px) {
+  .pokemonImagePage{
+      width: 17rem;
+  }
+  .stars{
+    color: rgb(255, 208, 0);
+    font-size: 2rem;
+    position: relative;
+    left: 16rem;
+    bottom: 3rem;
+  }
+}
+
+@media only screen and (max-width: 1408px) {
+  .totalWrapper{
+    display: inline-block;
+  }
+  .pokemonImagePage{
+}
+  .iconBigg{
+    display: inline-flex;
+    position: relative;
+    bottom:72rem;
+    left:8rem;
+    font-size: 3rem;
+    z-index: 999;
+  }
+
+  .imagesContainer{
+    position: absolute;
+    bottom:2rem;
+    left:40rem;
+    /* width: 45rem; */
+  }
+
+  
+  .evolution-line{
+
+  }
+
+
+.others{
+  padding-top: 40rem;
+  width: 30rem;
+}
+  
+.wrapper{
+  height: fit-content;
+}
+  
+  /* טבלה לא לגעת היא פיקס */
+  .tablee{
+    width: 32rem;
+  }
+  .uno{ 
+    float: left;
+    position: relative;
+    top:2rem;
+    padding-bottom:10rem;
+  }
+
+  /* מתקפות */
+  .dos{
+    text-align: left;
+    z-index: 999;
+  }
+
+
+.stars{
+  color: rgb(255, 208, 0);
+  font-size: 2rem;
+  position: relative;
+  left: 13rem;
+  bottom: 3rem;
+}
+
+.arrow{
+  position: relative;
+  right:1.9rem;
+  top:1rem;
+  width: 2rem;
+  clear:both;   
+  display: inline-block;
+}
+.imgRes{
+  position: relative;
+  left:2rem;
+}
+
+}
+
+@media only screen and (max-width: 900px) {
+  .totalWrapper{
+    display: inline-block;
+  }
+  .pokemonImagePage{
+    width: 14rem;
+}
+  .iconBigg{
+    display: inline-flex;
+    position: relative;
+    bottom:72rem;
+    left:8rem;
+    font-size: 3rem;
+    z-index: 999;
+  }
+
+  .imagesContainer{
+    position: absolute;
+    bottom:19rem;
+    left:11rem
+  }
+
+  
+.evolution-line{
+  padding-top:5rem;
+  width: 48rem;
+  float: left;
+}
+
+
+.others{
+  padding-top: 40rem;
+  width: 30rem;
+}
+  
+.wrapper{
+  height: fit-content;
+}
+  
+  /* טבלה לא לגעת היא פיקס */
+  .tablee{
+    width: 32rem;
+  }
+  .uno{ 
+    float: left;
+    position: relative;
+    top:12rem;
+    padding-bottom:10rem;
+  }
+
+  /* מתקפות */
+  .dos{
+    text-align: left;
+    z-index: 999;
+  }
+
+
+.stars{
+  color: rgb(255, 208, 0);
+  font-size: 2rem;
+  position: relative;
+  left: 13rem;
+  bottom: 3rem;
+}
+
+.arrow{
+  position: relative;
+  right:1.9rem;
+  width: 5rem;
+  clear:both;   
+  display: inline-block;
+}
+.imgRes{
+  position: relative;
+  left:2rem;
+}
+
+}
+@media only screen and (max-width: 768px) {
+  .totalWrapper{
+    display: inline-block;
+  }
+  .pokemonImagePage{
+    width: 11rem;
+}
+  .iconBigg{
+    display: inline-flex;
+    position: relative;
+    bottom:72rem;
+    left:8rem;
+    font-size: 3rem;
+    z-index: 999;
+  }
+
+  .imagesContainer{
+    position: absolute;
+    bottom:22rem;
+    left:7rem
+  }
+
+  
+.evolution-line{
+  padding-top:10rem;
+  width: 30rem;
+  float: left;
+}
+
+
+.others{
+  padding-top: 50rem;
+  width: 30rem;
+}
+  
+.wrapper{
+  height: fit-content;
+}
+  
+  /* טבלה לא לגעת היא פיקס */
+  .tablee{
+    width: 23rem;
+  }
+  .uno{ 
+    float: left;
+    position: relative;
+    top:12rem;
+    padding-bottom:10rem;
+  }
+
+  /* מתקפות */
+  .dos{
+    text-align: left;
+    z-index: 999;
+  }
+
+
+.stars{
+  color: rgb(255, 208, 0);
+  font-size: 1rem;
+  position: relative;
+  left: 9rem;
+  bottom: 4rem;
+}
+
+.arrow{
+  position: relative;
+  right:1.9rem;
+  width: 5rem;
+  clear:both;   
+  display: inline-block;
+}
+.imgRes{
+  position: relative;
+  left:2rem;
+}
+
+}
