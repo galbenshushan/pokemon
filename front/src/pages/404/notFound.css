@@ -1,0 +1,12 @@
+.notFound{
+    font-size: 15rem;
+}
+
+.btnStyle{
+    background-color: rgb(226, 203, 0);
+    font-weight: 600;
+}
+.btnStyle:hover{
+    background-color: rgb(187, 154, 8);
+    font-weight: 600;
+}

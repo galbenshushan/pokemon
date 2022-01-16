@@ -12,6 +12,12 @@
     float: right;
 }
 
+.disbtn:hover{
+    cursor: default;
+}
+.contn{
+    min-height: 10rem;
+}
 .card{
     box-shadow: 10px 10px 5px #000000;
     text-align: center;

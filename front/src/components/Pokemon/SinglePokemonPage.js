@@ -1,18 +1,15 @@
 import { IconButton, Tooltip, Zoom } from '@mui/material'
 import React, { useEffect, useState } from 'react'
-import { MdCatchingPokemon } from 'react-icons/md'
 import { GiCheckMark } from 'react-icons/gi'
 import { useSelector } from 'react-redux'
-import { useParams } from 'react-router-dom'
-import { getItemFromLocalStorage, setItemToLocalStorage } from '../../helpers/localStorage'
+import { useHistory, useParams } from 'react-router-dom'
+import { getItemFromLocalStorage } from '../../helpers/localStorage'
 import './card.css'
 import PokemonData from './SinglePageDetails/PokemonData'
 import { BsStars } from 'react-icons/bs'
 import Evolution from './SinglePageDetails/Evolution'
 
 const SinglePokemon = () => {
-
-    const [isInTeam, setisInTeam] = useState(false)
 
     const [pokemon, setPokemon] = useState({})
 
@@ -32,6 +29,8 @@ const SinglePokemon = () => {
 
     let params = useParams()
 
+    const history = useHistory()
+
     const themeSlice = useSelector(state => state.theme)
 
     const user = useSelector(state => state.auth)
@@ -43,13 +42,17 @@ const SinglePokemon = () => {
     const exist = pokeArr.find((poke) => poke.id === pokemon.id)
 
     const getDetails = async () => {
-        const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${params.id}`)
-        const data = await res.json()
-        data.isShiny = Math.ceil(Math.random() * 2000)
-        data.icon = data.sprites.versions["generation-viii"]["icons"]["front_default"]
-        data.image = data.sprites.other.home.front_default
-        data.shinyImage = data.sprites.other.home.front_shiny
-        setPokemon(data)
+        try {
+            const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${params.id}`)
+            const data = await res.json()
+            data.isShiny = Math.ceil(Math.random() * 2000)
+            data.icon = data.sprites.versions["generation-viii"]["icons"]["front_default"]
+            data.image = data.sprites.other.home.front_default
+            data.shinyImage = data.sprites.other.home.front_shiny
+            setPokemon(data)
+        } catch (err) {
+            history.push('../notFound')
+        }
     }
 
     const getMoreDetails = async () => {
@@ -152,22 +155,12 @@ const SinglePokemon = () => {
         })
     }
 
-    const catchPokemonHandler = () => {
-        if (exist) return;
-        if (pokeArr.length < 6) {
-            setisInTeam(true)
-            pokeArr.push(pokemon)
-            setItemToLocalStorage(`myteam${user.user._id}`, pokeArr)
-        }
-        return;
-    }
-
     useEffect(() => getDetails(), [params])
 
     useEffect(() => getMoreDetails(), [params])
 
     return (<>
-        {pokemon.id > 0 && <div>
+        {pokemon.id > 0 && <div className='contn'>
             <div className='wrapper pageRole'>
                 <div style={{ width: '40rem', marginLeft: '2rem' }} className='first'>
                     <div className='uno'>
@@ -185,16 +178,8 @@ const SinglePokemon = () => {
                                     <GiCheckMark style={dynamicText} className='iconBigg' />
                                 </IconButton>
                             </Tooltip>}
-                            {/* {!exist && pokemon.id < 1000 && <Tooltip TransitionComponent={Zoom}
-                                title={<h6>Catch {pokemon.name}!</h6>}>
-                                <IconButton onClick={catchPokemonHandler} aria-label="share">
-                                    <MdCatchingPokemon style={dynamicText} className='iconBigg' />
-                                </IconButton>
-                            </Tooltip>} */}
                         </div>
                     </div>
-
-
                 </div>
                 <div style={{ float: 'right' }} className='second wrapper'>
                     <div className='imagesContainer'>

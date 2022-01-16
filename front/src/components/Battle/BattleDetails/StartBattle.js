@@ -61,7 +61,7 @@ const StartBattle = ({ style, battleArr, themeSlice, rival, setOtherPokemon, set
         setShowAttacks(false)
         setMeAttacking(true)
         setTimeout(() => setMeAttacking(false), 500);
-        let attack = firstPokemon.stats[1].base_stat /1.3
+        let attack = firstPokemon.stats[1].base_stat / 1.3
         let rnd = Math.round(Math.random() * attack)
         console.log(rnd);
         console.log(attack);
@@ -84,7 +84,7 @@ const StartBattle = ({ style, battleArr, themeSlice, rival, setOtherPokemon, set
         if (currentR < 0) {
             currentR = 0
             setCurrentRivalHp(currentR)
-            setTimeout(() => setNotifications(`${rival.name} fainted`), 1500);
+            setTimeout(() => setNotifications(`${rival.name} fainted`), 1000);
             setTimeout(() => {
                 firstPokemon.stats[0].base_stat += 1
                 firstPokemon.stats[1].base_stat += 1
@@ -99,7 +99,7 @@ const StartBattle = ({ style, battleArr, themeSlice, rival, setOtherPokemon, set
                 levelUpHandler(state => state + 1)
                 setNotifications(`${firstPokemon.name} gained 100 EXP`)
             }, 2500);
-            setRoundLoser(rival)
+                setRoundLoser(rival)
             setMyTurn(false)
 
             return;
@@ -119,8 +119,6 @@ const StartBattle = ({ style, battleArr, themeSlice, rival, setOtherPokemon, set
         let rndMove = Math.ceil(Math.random() * 4)
         let attack = rival.stats[1].base_stat / 1.7
         let rnd = Math.round(Math.random() * attack)
-        console.log(rnd);
-        console.log(attack);
         if (rival.isShiny % 9 === 2) {
             rnd = Math.round(rnd * 1.5)
         }
@@ -288,11 +286,11 @@ const StartBattle = ({ style, battleArr, themeSlice, rival, setOtherPokemon, set
     useEffect(() => {
         setCurrentRivalHp(rival.stats[0].base_stat)
         setMyTurn(false)
-        setNotifications(`A wild ${rival.name} appeared!`)
+        setTimeout(() => { setNotifications(`A wild ${rival.name} appeared!`) }, 2400)
         setTimeout(() => {
             setNotifications(`What will ${firstPokemon.nickname || firstPokemon.name} do?`)
             setMyTurn(true)
-        }, 3000)
+        }, 3500)
     }, [setOtherPokemon])
 
     useLayoutEffect(() => {
@@ -312,7 +310,7 @@ const StartBattle = ({ style, battleArr, themeSlice, rival, setOtherPokemon, set
         } else {
             setTimeout(() => setPausa(true), 2000)
             setRivalPokemons(state => state + 1)
-            setTimeout(() => setOtherPokemon(currentRivalHp), 2500)
+            setTimeout(() => setOtherPokemon(currentRivalHp), 2000)
             setTimeout(() => setPausa(false), 3500)
         }
     }, [roundLoser]);

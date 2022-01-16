@@ -4,13 +4,12 @@ import Card from '@mui/material/Card';
 import { styled } from '@mui/material/styles';
 import CardHeader from '@mui/material/CardHeader';
 import IconButton from '@mui/material/IconButton';
-import { MdCatchingPokemon } from "react-icons/md";
 import Tooltip from '@mui/material/Tooltip';
 import Zoom from '@mui/material/Zoom';
 import { Link } from 'react-router-dom';
 import { BsStars } from "react-icons/bs";
 import { useLocation } from 'react-router-dom/cjs/react-router-dom.min';
-import { getItemFromLocalStorage, setItemToLocalStorage } from '../../helpers/localStorage';
+import { getItemFromLocalStorage } from '../../helpers/localStorage';
 import "./card.css"
 import { GiCheckMark } from 'react-icons/gi';
 import NicknameContainer from '../Pokemon/CardDetails/NicknameContainer'
@@ -144,11 +143,11 @@ const PokemonCard = ({ pokemon, onRelease, onNickname }) => {
         <Collapse in={expanded} timeout="auto" unmountOnExit>
           <CardContent>
             <Typography style={dynamicText} paragraph>
-              MOVES:
+              STATS:
             </Typography>
             <Typography style={dynamicText} paragraph>
-              {pokemonMoves.map((move, idx) =>
-                <Button key={idx} disabled style={dynamicText}>{move.name} </Button>
+              {pokemon.stats.map((stat, idx) =>
+                <Button className='disbtn' variant="outlined" key={idx} style={dynamicText}>{stat.stat.name}: {stat.base_stat} </Button>
               )}
             </Typography>
           </CardContent>

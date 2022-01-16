@@ -41,12 +41,14 @@ const AutoComplete = () => {
                 const moreData = async () => {
                     setxButton(true)
                     setPokemonData([])
-                    const fullPokemonRes = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`)
-                    const fullPokemonData = await fullPokemonRes.json()
-                    const id = fullPokemonData.id
-                    const name = fullPokemonData.name
-                    const image = fullPokemonData.sprites.other.home.front_default
-                    setPokemonData(current => [...current, { id, name, image }])
+                    fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`)
+                        .then(response => response.json())
+                        .then(fullPokemonData => {
+                            const id = fullPokemonData.id
+                            const name = fullPokemonData.name
+                            const image = fullPokemonData.sprites.other.home.front_default
+                            setPokemonData(current => [...current, { id, name, image }])
+                        });
                 }
                 moreData()
             }
@@ -92,6 +94,8 @@ const AutoComplete = () => {
             }
         }
     }
+
+    useLayoutEffect(() => { }, [])
 
     return (
         <div >
