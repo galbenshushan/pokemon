@@ -1,0 +1,35 @@
+.containerr{
+    min-height: 20rem;
+    padding-top: 1rem;
+    line-height: 300%;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.intro{
+    width: 100%;
+}
+
+a{
+    color:rgb(179, 182, 7);
+    transition: 0.3s;
+}
+a:hover{
+    color:rgb(182, 112, 7);
+    transition: 0.3s;
+
+}
+
+.introText{
+    padding-left:2rem;
+    width: fit-content;
+}
+
+.textt{
+    font-size: 1rem;
+    padding-left: 3rem;
+}
+
+.inst{
+    padding-top: 4rem;
+}

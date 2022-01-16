@@ -1,0 +1,182 @@
+.wrapper {
+    overflow: hidden;
+}
+.first {
+    float:left; 
+}
+.second {
+    overflow: hidden; 
+}
+
+.floatRight{
+    float: right;
+}
+
+.card{
+    box-shadow: 10px 10px 5px #000000;
+    text-align: center;
+    transition: all 0.5s;
+    margin-bottom:3rem;
+    width: 27rem;
+    min-height: 25rem;
+    height: fit-content;
+
+}
+.card:hover{
+    box-shadow: 15px 15px 15px #000000;
+    transition: 0.5s;
+    transition: width 2s, height 2s, transform 1s, all 0.5s;
+    -webkit-animation: mover 1s infinite  alternate;
+    animation: mover 1s infinite  alternate;
+}
+
+
+.header{
+    font-weight: 800;
+    text-align: center;
+}
+
+.btnType{
+    width: 5rem;
+    height: 2rem;
+    text-align: center;
+    border-radius: 20px;
+    color: white;
+    display: inline-block;
+    margin-right: 0.3rem;
+    font-weight: 600;
+    font-size: 1.3rem;
+    box-shadow: 5px 5px 5px #000000;
+
+}
+
+.icon{
+    font-size: 3rem;
+    transition:0.3s
+}
+
+.iconBigg{
+    font-size: 6rem;
+    transition:0.3s
+}
+
+.pokemonImage{
+    width: 13.5rem;
+}
+
+.icon:hover{
+    color:rgb(182, 0, 0);
+    transition:0.3s
+}
+.icon:active{
+    color:rgb(182, 0, 0);
+    transition:0.3s
+}
+.images{
+    display: inline-flex;
+    top: 2rem;
+
+}
+.sprite{
+    transition: width 2s, height 2s, transform 2s;
+    
+
+}
+.sprite:hover{
+    transition: width 2s, height 2s, transform 2s;
+    -webkit-animation: mover 1s infinite  alternate;
+    animation: mover 1s infinite  alternate;
+
+}
+
+
+@-webkit-keyframes mover {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-20px); }
+}
+@keyframes mover {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-20px); }
+}
+
+.typegrass{
+    background: linear-gradient(355deg, rgba(2,0,36,1) 0%, rgb(41, 121, 9) 31%, rgb(21, 255, 0) 100%);
+}
+
+.typefire{
+    background: linear-gradient(355deg, rgba(2,0,36,1) 0%, rgb(173, 13, 13) 31%, rgb(255, 115, 0) 100%);
+}
+
+.typefighting{
+    background: linear-gradient(355deg, rgba(2,0,36,1) 0%, rgb(85, 11, 9) 31%, rgb(214, 73, 73) 100%);
+}
+
+.typewater{
+    background: linear-gradient(355deg, rgba(2,0,36,1) 0%, rgb(30, 69, 153) 31%, rgba(0,212,255,1) 100%);
+}
+
+.typepoison{
+    background: linear-gradient(355deg, rgba(2,0,36,1) 0%, rgb(61, 9, 121) 31%, rgb(185, 64, 255) 100%);
+}
+
+.typeghost{
+    background: linear-gradient(355deg, rgba(2,0,36,1) 0%, rgb(53, 38, 80) 31%, rgb(158, 113, 175) 100%);
+}
+.typedragon{
+    background: linear-gradient(355deg, rgba(2,0,36,1) 0%, rgb(57, 15, 211) 31%, rgb(153, 0, 255) 100%);
+}
+
+.typedark{
+    background: linear-gradient(355deg, rgba(2,0,36,1) 0%, rgb(32, 32, 32) 31%, rgb(112, 112, 112) 100%);
+}
+.typeflying{
+    background: linear-gradient(355deg, rgba(2,0,36,1) 0%, rgb(109, 109, 201) 31%, rgb(198, 198, 255) 100%);
+}
+
+.typebug{
+    background: linear-gradient(355deg, rgba(2,0,36,1) 0%, rgb(107, 155, 19) 31%, rgb(221, 255, 28)100%);
+}
+
+.typenormal{
+    background: linear-gradient(355deg, rgba(2,0,36,1) 0%, rgb(156, 154, 114) 31%, rgb(209, 207, 179) 100%);
+}
+
+.typeelectric{
+    background: linear-gradient(355deg, rgba(2,0,36,1) 0%, rgb(207, 195, 17) 31%, rgb(255, 246, 125) 100%);
+}
+
+.typeground{
+    background: linear-gradient(355deg, rgba(2,0,36,1) 0%, rgb(104, 95, 42) 31%, rgb(177, 172, 101) 100%);
+}
+
+.typerock{
+    background: linear-gradient(355deg, rgba(2,0,36,1) 0%, rgb(63, 50, 32) 31%, rgb(107, 80, 28)100%);
+}
+
+.typepsychic{
+    background: linear-gradient(355deg, rgba(2,0,36,1) 0%, rgb(155, 9, 160) 31%, rgb(238, 107, 255) 100%);
+}
+
+.typefairy{
+    background: linear-gradient(355deg, rgba(2,0,36,1) 0%, rgb(237, 103, 255) 31%, rgb(254, 218, 255) 100%);}
+
+.typesteel{
+    background: linear-gradient(355deg, rgba(2,0,36,1) 0%, rgb(117, 123, 124) 31%, rgb(204, 226, 226) 100%);
+}
+.typeice{
+    background: linear-gradient(355deg, rgba(2,0,36,1) 0%, rgb(79, 140, 145) 31%, rgb(194, 246, 253) 100%);
+}
+
+
+@media only screen and (max-width: 768px) {
+    .pokemonImage{
+        width: 11rem;
+    }
+    .card{
+        width: fit-content;
+        max-width: 23rem;
+        min-height: 21rem;
+
+    }
+
+}

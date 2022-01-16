@@ -1,0 +1,237 @@
+.unchosen-card:hover{
+    box-shadow: 15px 15px 15px #000000;
+    transition: 0.5s;
+    transition: width 2s, height 2s, transform 1s, all 0.5s;
+    -webkit-animation: mover 1s infinite  alternate;
+    animation: mover 1s infinite  alternate;
+}
+
+.battle-icon{
+    width: 1rem;
+}
+
+.iconsContainer{
+    width: 5rem;
+    min-width: 10rem;
+}
+
+.pp{
+    width: fit-content;
+}
+
+.unchosen-card{
+    display: none;
+    filter: brightness(0);
+}
+
+.battle-card{
+    transition: 0.5s;
+    cursor: pointer;
+    filter: brightness(1);
+
+}
+
+.battle-card:hover{
+    box-shadow: 15px 15px 15px #000000;
+    transition: 0.5s;
+    transition: width 2s, height 2s, transform 1s, all 0.5s;
+    -webkit-animation: mover 1s infinite  alternate;
+    animation: mover 1s infinite  alternate;
+}
+
+.currentPrtp{
+    width: 20rem;
+    position: fixed;
+    top: 29rem;
+    left:7rem;    
+}
+.currentRival{
+    width: 20rem;
+    position: fixed;
+    top: 13rem;
+    left:44rem;    
+}
+.prtcp{
+    width: 20rem;
+    position: fixed;
+    top: 35rem;
+    left:28rem;    
+}
+.rvl{
+    width: 20rem;
+    position: fixed;
+    top: 13rem;
+    left:25rem;    
+}
+
+.battlebar{
+    border: 1px solid black;
+    position: fixed;
+    width: 30rem;
+}
+
+.shadowUnder{
+    position: relative;
+    width: 20rem;
+    border: 1px solid black;
+    height: 2rem;
+    box-shadow: 0 8px 6px -6px black;
+}
+
+@-prefix-keyframes slide {
+    from {height: 0;}
+    to {height: 300px;}
+  }
+
+  .moveUpDown {
+    transition: width 1s, height 1s, transform 1s, all 0.5s;
+    -webkit-animation: mover 1s infinite  alternate;
+    animation: mover 0.7s infinite  alternate;
+  }
+  
+  @keyframes MoveUpDown {
+    0%, 100% {
+      bottom: 0;
+    }
+    50% {
+      bottom: 100px;
+    }
+  }
+
+@import url(https://fonts.googleapis.com/css?family=Anonymous+Pro);
+
+.line-1{
+    position: relative;
+    top: 50%;  
+    width: 24em;
+    margin: 0 auto;
+    border-right: 2px solid rgba(255,255,255,.75);
+    font-size: 180%;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    transform: translateY(-50%);    
+}
+
+.battleOperations{
+    position: fixed;
+    top:45rem;
+    left:6rem;
+    z-index: 999;
+    width: 80.5%;
+    border:1px solid rgb(26, 26, 26);
+    height: 4.7rem;
+    background-color: rgb(8, 26, 19);
+}
+
+
+.no-move{
+    display:none !important;
+    position: fixed;
+}
+
+.move {
+      animation: diagonal 1.2s;
+      animation-iteration-count: 1;
+  }
+
+
+  .rivalMoveWhenAttack {
+    position: fixed;
+    top: 13rem;
+    left:44rem;  
+    transition: width 1s, height 1s, transform 1s, all 0.5s;
+    -webkit-animation: rivalMoveWhenAttack 1s  alternate;
+    animation: rivalMoveWhenAttack 0.5s  alternate;
+    animation-iteration-count: 1;
+
+  }
+  
+  @keyframes rivalMoveWhenAttack {
+    0% {
+    top: 13rem;
+    left:44rem;  
+
+  }
+  50% {
+      top: 14rem;
+      left:42rem;  
+    }
+    
+    100% {
+      top: 13rem;
+      left:44rem;  
+    }
+  }
+
+
+  .moveWhenAttack {
+    position: fixed;
+    top: 29rem;
+    left:7rem; 
+    transition: width 1s, height 1s, transform 1s, all 0.5s;
+    -webkit-animation: moveWhenAttack 1s  alternate;
+    animation: moveWhenAttack 0.5s  alternate;
+    animation-iteration-count: 1;
+
+  }
+  @keyframes moveWhenAttack {
+    0% {
+      left: 7rem;
+      top: 29rem;
+    }
+    50% {
+      left: 9rem;
+      top: 28rem;
+    }
+    
+    100% {
+      left: 7rem;
+      top: 29rem;
+    }
+  }
+  .moveLeftRight {
+    position: fixed;
+    top:22rem;
+    left: 51rem;
+    transition: width 1s, height 1s, transform 1s, all 0.5s;
+    -webkit-animation: moveLeftRight 1s  alternate;
+    animation: moveLeftRight 3s  alternate;
+    animation-iteration-count: 1;
+
+  }
+  
+  @keyframes moveLeftRight {
+    0% {
+      left: 51rem;
+    }
+    50% {
+        left: 53rem;
+    }
+    75% {
+        left: 51rem;
+    }
+    100% {
+        left: 53rem;
+    }
+  }
+  
+  @-webkit-keyframes diagonal {
+    0%       { transform: translatex(-20px) translatey(250px) }
+    100%     { transform: translatex(750px) translatey(-150px) } 
+  }
+   
+  @-moz-keyframes diagonal {
+    0%       { transform: translatex(-20px) translatey(250px) }
+    100%     { transform: translatex(750px) translatey(-150px) } 
+  }
+  
+  @-o-keyframes diagonal {
+    0%       { transform: translatex(-20px) translatey(250px) }
+    100%     { transform: translatex(750px) translatey(-150px) } 
+  }
+  
+  @keyframes diagonal {
+      0%       { transform: translatex(-20px) translatey(250px) }
+      100%     { transform: translatex(750px) translatey(-150px) } 
+  }
