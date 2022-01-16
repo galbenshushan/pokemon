@@ -61,8 +61,11 @@ const StartBattle = ({ style, battleArr, themeSlice, rival, setOtherPokemon, set
         setShowAttacks(false)
         setMeAttacking(true)
         setTimeout(() => setMeAttacking(false), 500);
-        let attack = firstPokemon.stats[1].base_stat 
+        let attack = firstPokemon.stats[1].base_stat /1.3
         let rnd = Math.round(Math.random() * attack)
+        console.log(rnd);
+        console.log(attack);
+
         if (firstPokemon.isShiny % 9 === 2) {
             attack = Math.round(attack * 1.5)
         }
@@ -86,13 +89,15 @@ const StartBattle = ({ style, battleArr, themeSlice, rival, setOtherPokemon, set
                 firstPokemon.stats[0].base_stat += 1
                 firstPokemon.stats[1].base_stat += 1
                 firstPokemon.stats[2].base_stat += 1
-                setCurrentMyHp(currentMyHp + 2)
+                if (currentMyHp < firstPokemon.stats[0].base_stat) {
+                    setCurrentMyHp(currentMyHp + 1)
+                }
                 firstPokemon.level++
                 team = team.filter(poke => poke.id !== firstPokemon.id)
                 team.push(firstPokemon)
                 setItemToLocalStorage(`myteam${user.user._id}`, team)
                 levelUpHandler(state => state + 1)
-                setNotifications(`${firstPokemon.name} gained 50 EXP`)
+                setNotifications(`${firstPokemon.name} gained 100 EXP`)
             }, 2500);
             setRoundLoser(rival)
             setMyTurn(false)
@@ -112,8 +117,11 @@ const StartBattle = ({ style, battleArr, themeSlice, rival, setOtherPokemon, set
         setTimeout(() => setIsAttacking(true), 700);
         setTimeout(() => setIsAttacking(false), 1200);
         let rndMove = Math.ceil(Math.random() * 4)
-        let rnd = Math.round(Math.random() * rival.stats[1].base_stat / 1.5)
-        if (firstPokemon.isShiny % 9 === 2) {
+        let attack = rival.stats[1].base_stat / 1.7
+        let rnd = Math.round(Math.random() * attack)
+        console.log(rnd);
+        console.log(attack);
+        if (rival.isShiny % 9 === 2) {
             rnd = Math.round(rnd * 1.5)
         }
         let current = currentMyHp - rnd
@@ -180,35 +188,25 @@ const StartBattle = ({ style, battleArr, themeSlice, rival, setOtherPokemon, set
                 setPokemonInBall(true)
                 if (team.length < 6 && !exist) {
                     const chances = currentRivalHp / rival.stats[0].base_stat
-                    console.log(chances);
-                    if (chances < 0.25) {
-                        console.log('a');
-                        catchChance(2)
+                    if (chances <= 0.25) {
+                        catchChance(1)
                     }
-                    if (0.25 < chances && chances < 0.75) {
-                        console.log('b');
-                        console.log(chances);
-                        catchChance(5)
+                    if (0.25 < chances && chances <= 0.75) {
+                        catchChance(3)
                     }
                     if (chances === 1 || chances > 0.75) {
-                        console.log('c');
-                        console.log(chances);
-                        catchChance(7)
+                        catchChance(5)
                     }
                 }
                 return;
             }, 1200);
         }
-    } // 2 4 6 8 10, 5 10 // 7
+    }
 
 
     const catchChance = (chanceRate) => {
         let rndChances = Math.round(Math.random() * 10)
-        console.log(rndChances);
-        console.log(chanceRate);
         if (rndChances % chanceRate === 0) {
-            console.log(chanceRate);
-            console.log(rndChances);
             setPokemonInBall(true)
             setTimeout(() => { setNotifications(`You Catched a ${rival.name}`) }, 2700);
             team.push(rival)
