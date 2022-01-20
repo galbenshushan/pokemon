@@ -41,11 +41,19 @@ The part I enjoyed the most was the auto-complete input bar, I built it from scr
 This is a Full Mern-Stack side to side (mongoDB, ExpressJS , React , NodeJS).
 
 ## Introduction
-Register/Login to the app, After that you can search for Pokemon that you like, Catch it and give him nickname.
-You can search from the pokedex or the auto-search-bar.
-In the pokemon page you can read about stats, attacks, evolutions and more details about your pokemon.
-You have something like 10% chance to catch a shiny pokemon, Try your best!
-You able to battle with your Pokemons and another random Pokemons and raise your pokemon level!
+If you aren't login or register to the app, do it.
+After that will be able to choose your first pokemon starter and give him a nickname if you want.
+You can search from the Pokedex for Pokemon that you like, Read about it and see all the information about it,
+stats, attacks, evolutions and more details about the pokemon, maybe one day it will be yours
+You have something like 10% chance to get a shiny pokemon, Try your best!
+You able to battle with your Pokemon agaist another random Pokemons and raise your pokemon level!
+each Level your Pokemon reached, the stronger it got!
+Of course you can also catch them if you will succeed.
+Advice: It is recommended to fight them a little before but not to defeat them, it increases the chances of capture.
+I'm sure you will be great!
 
 ## Soon
-You will be able to catch random Pokemons in the battle!
+    -Poke Tetris game!
+    -Poke Race game!
+    -Making your own Avatar Trainer!
+    -Evolve Pokemon and make them stronger than ever!
