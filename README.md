@@ -56,4 +56,4 @@ I'm sure you will be great!
     -Poke Tetris game!
     -Poke Race game!
     -Making your own Avatar Trainer!
-    -Evolve Pokemon and make them stronger than ever!
+    -Evolve Pokemon and make them stronger than ever!!
