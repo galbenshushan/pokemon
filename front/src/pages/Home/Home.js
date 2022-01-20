@@ -15,8 +15,6 @@ const Home = () => {
 
     let team = getItemFromLocalStorage(`myteam${user.user._id}`) || []
 
-    console.log(user.isAuth);
-
     return (
         <div className='containerr'>
             <div className='intro wrapper'>

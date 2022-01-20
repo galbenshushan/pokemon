@@ -21,16 +21,16 @@ const BattleIntro = ({ pokemon, battleArr, setBattleArr }) => {
 
     return (
         <Card onClick={() => battleTeamHandler(pokemon)}
-            className={battleArr.includes(pokemon)  ? 'unchosen-card' : 'battle-card'}
+            className={battleArr.includes(pokemon) ? 'unchosen-card' : 'battle-card'}
             style={{
-                cursor: !battleArr.includes(pokemon)  ? 'pointer' : 'default',
-                width: '18rem', marginTop: '2rem', marginLeft: '2rem',
+                cursor: !battleArr.includes(pokemon) ? 'pointer' : 'default',
+                marginTop: '2rem', marginLeft: '2rem',
                 backgroundColor: themeSlice === false ? 'rgb(12, 12, 12)' : 'rgb(227, 236, 243)'
             }}>
             {pokemon.isShiny % 9 !== 2 &&
-                <img className='sprite first' alt="pokemon" className='pokemonImage' src={pokemon.image} />}
+                <img alt="pokemon" className='pokemonImageBattle' src={pokemon.image} />}
             {pokemon.isShiny % 9 === 2 &&
-                <img className='sprite first' alt="pokemon" className='pokemonImage' src={pokemon.shinyImage} />}
+                <img alt="pokemon" className='pokemonImageBattle' src={pokemon.shinyImage} />}
             <p style={{ fontWeight: '600', color: dynamicText }}>
                 {pokemon.nickname || toUpper(pokemon.name)}
             </p>

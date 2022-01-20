@@ -25,6 +25,7 @@
 }
 
 .battle-card{
+  width: 18rem;
     transition: 0.5s;
     cursor: pointer;
     filter: brightness(1);
@@ -39,29 +40,49 @@
     animation: mover 1s infinite  alternate;
 }
 
+.pokemonImageBattle{
+  width: 10rem;
+}
+
 .currentPrtp{
     width: 20rem;
     position: fixed;
-    top: 29rem;
+    top: 23.5rem;
     left:7rem;    
 }
 .currentRival{
+  position: relative;
     width: 20rem;
     position: fixed;
-    top: 13rem;
+    top: 9rem;
     left:44rem;    
 }
 .prtcp{
-    width: 20rem;
-    position: fixed;
-    top: 35rem;
-    left:28rem;    
+  position: relative;
+  width: 20rem;
+  position: fixed;
+  top: 30rem;
+  left:37rem;    
 }
 .rvl{
+  position: relative;
     width: 20rem;
     position: fixed;
-    top: 13rem;
-    left:25rem;    
+    top: 11rem;
+    left:18rem;    
+}
+.battleHeader{
+  /* width: fit-content; */
+}
+.paddIcons{
+  position: relative;
+  bottom:2.5rem;
+  z-index: 99;
+}
+.battleBackgroud{
+  position: relative;
+  bottom:4rem;
+  z-index: -1;
 }
 
 .battlebar{
@@ -115,7 +136,7 @@
 
 .battleOperations{
     position: fixed;
-    top:45rem;
+    top:38.8rem;
     left:6rem;
     z-index: 999;
     width: 80.5%;
@@ -146,48 +167,50 @@
     animation-iteration-count: 1;
 
   }
-  
+
   @keyframes rivalMoveWhenAttack {
     0% {
-    top: 13rem;
-    left:44rem;  
+      top: 9rem;
+      left:44rem; 
 
   }
   50% {
-      top: 14rem;
-      left:42rem;  
+    top: 11rem;
+    left:42rem;
     }
     
     100% {
-      top: 13rem;
-      left:44rem;  
+      top: 9rem;
+      left:44rem; 
     }
   }
 
 
   .moveWhenAttack {
     position: fixed;
-    top: 29rem;
-    left:7rem; 
+    left: 7rem;
+    top: 23.5;
     transition: width 1s, height 1s, transform 1s, all 0.5s;
     -webkit-animation: moveWhenAttack 1s  alternate;
     animation: moveWhenAttack 0.5s  alternate;
     animation-iteration-count: 1;
 
   }
+
   @keyframes moveWhenAttack {
     0% {
+      
       left: 7rem;
-      top: 29rem;
+      top: 23.5;
     }
     50% {
       left: 9rem;
-      top: 28rem;
+      top: 21.5rem;
     }
     
     100% {
       left: 7rem;
-      top: 29rem;
+      top: 23.5;
     }
   }
   .moveLeftRight {

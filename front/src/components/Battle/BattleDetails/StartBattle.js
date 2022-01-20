@@ -320,7 +320,7 @@ const StartBattle = ({ style, battleArr, themeSlice, rival, setOtherPokemon, set
             <IconButton style={{ float: 'left', cursor: 'default' }} >
                 <SiPokemon style={{ color: themeSlice === false ? 'white' : 'black', fontSize: '3rem' }} />
             </IconButton>
-            {rivalPokemons + 1 <= battleArr.length && <h3 > Round {rivalPokemons + 1} from {battleArr.length}</h3>}
+            {rivalPokemons + 1 <= battleArr.length && <h3 className='battleHeader'> Round {rivalPokemons + 1} from {battleArr.length}</h3>}
             {rivalPokemons + 1 > battleArr.length && <h3 > You Win!</h3>}
             <div style={{ paddingTop: '1rem' }}>
                 <div >
@@ -353,7 +353,7 @@ const StartBattle = ({ style, battleArr, themeSlice, rival, setOtherPokemon, set
                         <div className='first'>
                             {notifications !== '' && <h3>{notifications}</h3>}
                         </div>
-                        <div style={{ float: 'right', maxWidth: '22rem', height: '4.4rem' }} className='second'>
+                        <div style={{ float: 'right', maxWidth: '22rem', height: '5rem' }} className='second'>
                             <Fragment>
                                 {myTurn === true && showAttacks === false && <>
                                     <Button style={{ width: '11rem', color: 'black' }} variant="contained" color="inherit" onClick={() => setShowAttacks(true)}>

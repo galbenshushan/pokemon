@@ -8,7 +8,7 @@ const UseRegister = () => {
     const [error, setError] = useState(null);
 
     const sendRegPostRequest = useCallback((reqBody) => {
-        fetch(`http://localhost:8040/auth/register`, {
+        fetch(`https://pokemongotcha.herokuapp.com/auth/register`, {
             method: 'POST',
             // mode: 'cors',
             body: JSON.stringify(reqBody),
@@ -19,6 +19,7 @@ const UseRegister = () => {
         })
             .then(response => response.json())
             .then(data => {
+                console.log(data);
                 if (data.type === 'error') {
                     const errorToSend = data.inner
                     setError(errorToSend)

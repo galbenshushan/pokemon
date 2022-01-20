@@ -2,7 +2,7 @@ import React, { useEffect, useLayoutEffect, useState } from 'react';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import { useSelector } from 'react-redux';
-import { Button, Card, IconButton } from '@mui/material';
+import { Button, IconButton } from '@mui/material';
 import { AiOutlineClose } from "react-icons/ai";
 import { CardGroup } from 'react-bootstrap';
 import "./battle.css"
@@ -11,7 +11,7 @@ import BattlePartners from './BattleDetails/BattlePartners';
 import BattleIntro from './BattleDetails/BattleIntro';
 import StartBattle from './BattleDetails/StartBattle';
 
-export default function BattleModal({ getFromBattle, levelUpHandler }) {
+const BattleModal = ({ getFromBattle, levelUpHandler }) => {
 
     const user = useSelector(state => state.auth)
 
@@ -22,12 +22,12 @@ export default function BattleModal({ getFromBattle, levelUpHandler }) {
     const dynamicText = themeSlice === false ? 'white' : 'black'
 
     const style = {
-        position: 'absolute',
+        position: 'fixed',
         top: '50%',
         left: '50%',
         transform: 'translate(-50%, -50%)',
-        width: '75rem',
-        height: '52rem',
+        width: '73rem',
+        height: '45rem',
         bgcolor: themeSlice === false ? 'rgb(30,30, 32)' : 'white',
         color: themeSlice === false ? 'white' : 'black',
         border: '2px solid #000',
@@ -131,7 +131,14 @@ export default function BattleModal({ getFromBattle, levelUpHandler }) {
                                 </CardGroup>
                             </div>
                             <br />
-                            {battleArr.length > 0 && <Button style={{ position: 'fixed', top: '48rem', left: '35rem' }} className='centerBtn' color='error' onClick={startBattle} variant="contained">Go!</Button>}
+                            {battleArr.length > 0 && <Button
+                                style={{ position: 'fixed', top: '41rem', left: '35rem' }}
+                                className='centerBtn'
+                                color='error'
+                                onClick={startBattle}
+                                variant="contained">
+                                Go!
+                            </Button>}
                         </div>
                     </Box>}
                     {switcher === true &&
@@ -150,3 +157,4 @@ export default function BattleModal({ getFromBattle, levelUpHandler }) {
     </>
     );
 }
+export default BattleModal

@@ -14,7 +14,6 @@ const UseLogin = () => {
         const userData = getItemFromLocalStorage('user') || { first_name: '', last_name: '', email: '', role: 0 };
         const tokenToSend = getItemFromLocalStorage('auth-token') || '';
         if (userData && tokenToSend) {
-            console.log('a');
             dispatch(authActions.startAuthSession({
                 first_name: userData.first_name,
                 last_name: userData.last_name,
@@ -24,7 +23,7 @@ const UseLogin = () => {
             },
             ));
         } else {
-            fetch(`http://localhost:8040/auth/login`, {
+            fetch(`https://pokemongotcha.herokuapp.com/auth/login`, {
                 method: 'POST',
                 // mode: 'cors',
                 body: JSON.stringify(reqBody),

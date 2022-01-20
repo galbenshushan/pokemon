@@ -79,7 +79,7 @@ const StartBattleContent = ({ rival, firstPokemon, currentMyHp, currentRivalHp, 
                     <img alt="pokemon" className={meAttacking === false ? 'pokemonImage moveUpDown currentPrtp' : 'move currentPrtp moveWhenAttack'} src={firstPokemon.sprites.back_shiny} />}
 
             </div>}
-            <img src={battleBackground} style={{ width: '60rem' }} />
+            <img className='battleBackgroud' src={battleBackground} style={{ width: '58.5rem' }} />
         </div>
     )
 }

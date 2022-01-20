@@ -74,11 +74,11 @@ const ResponsiveAppBar = () => {
                             open={Boolean(anchorElNav)}
                             onClose={handleCloseNavMenu}
                             sx={{ display: { xs: 'block', md: 'none' } }}>
-                            <Link className='nav-itemm' to='/PokemonList'>
+                            {user.isAuth && <Link className='nav-itemm' to='/PokemonList'>
                                 <MenuItem onClick={handleCloseNavMenu}>
                                     <Typography textAlign="center">Pokedex</Typography>
                                 </MenuItem>
-                            </Link>
+                            </Link>}
                             <Link className='nav-itemm' to='Home'>
                                 <MenuItem onClick={handleCloseNavMenu}>
                                     <Typography textAlign="center">Home</Typography>
@@ -111,13 +111,13 @@ const ResponsiveAppBar = () => {
                             </Button>
                         </Link>
                         <Link className='nav-itemm' to='/PokemonList'>
-                            <Button style={dynamicText}
+                            {user.isAuth && <Button style={dynamicText}
                                 className='nav-itemm'
                                 onClick={handleCloseNavMenu}
                                 sx={{ my: 2, mx: 5, display: 'block' }}
                             >
                                 Pokedex
-                            </Button>
+                            </Button>}
                         </Link>
                         <Link className='nav-itemm' to='/About'>
                             <Button style={dynamicText}
@@ -153,8 +153,8 @@ const ResponsiveAppBar = () => {
                             className='nav-item-text'
                             onClick={handleCloseNavMenu}
                             sx={{ my: 2, mx: 5, display: 'block' }}>
-                           {user.user.first_name}
-                          <img src={userLogo} alt='pokemonTrainer' style={{width:'2.5rem'}}/>
+                            {user.user.first_name}
+                            <img src={userLogo} alt='pokemonTrainer' style={{ width: '2.5rem' }} />
                         </Button>} id="basic-nav-dropdown">
                             {user.user.email === 'galbenshushan5@gmail.com' && user.isAuth &&
                                 <NavDropdown.Item href="#action/3.1">

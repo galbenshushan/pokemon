@@ -4,7 +4,7 @@ import { AiOutlineArrowDown } from 'react-icons/ai'
 
 const StartBattleIconPart = ({ battleArr, firstPokemon, rivalPokemons, myPokemons }) => {
     return (
-        <div style={{ width: '60rem', }} className='wrapper'>
+        <div style={{ width: '60rem', }} className='wrapper paddIcons'>
             <div className='first' style={{ display: 'flex',  }}>
                 {battleArr.map((pokemon, idx) => <div className='' key={idx}>
                     <div className={pokemon.name === firstPokemon.name ? 'moveUpDown pp' : 'pp'}>
