@@ -20,7 +20,7 @@ import UseLogout from '../../hooks/UseLogout';
 import userLogo from '../../images/trainerLogo.png'
 
 const ResponsiveAppBar = () => {
-
+    
     const { logout } = UseLogout()
 
     const user = useSelector(state => state.auth)
@@ -74,9 +74,14 @@ const ResponsiveAppBar = () => {
                             open={Boolean(anchorElNav)}
                             onClose={handleCloseNavMenu}
                             sx={{ display: { xs: 'block', md: 'none' } }}>
-                            {user.isAuth && <Link className='nav-itemm' to='/PokemonList'>
+                            {user.isAuth && <Link className='nav-itemm' to='/Pokedex'>
                                 <MenuItem onClick={handleCloseNavMenu}>
                                     <Typography textAlign="center">Pokedex</Typography>
+                                </MenuItem>
+                            </Link>}
+                            {user.isAuth && <Link className='nav-itemm' to='/team'>
+                                <MenuItem onClick={handleCloseNavMenu}>
+                                    <Typography textAlign="center">Team</Typography>
                                 </MenuItem>
                             </Link>}
                             <Link className='nav-itemm' to='Home'>
@@ -110,7 +115,7 @@ const ResponsiveAppBar = () => {
                                 Home
                             </Button>
                         </Link>
-                        <Link className='nav-itemm' to='/PokemonList'>
+                        <Link className='nav-itemm' to='/Pokedex'>
                             {user.isAuth && <Button style={dynamicText}
                                 className='nav-itemm'
                                 onClick={handleCloseNavMenu}
@@ -135,7 +140,7 @@ const ResponsiveAppBar = () => {
                             </Button>
                         </Link>}
                         <Button style={dynamicText}>
-                            SWITCH THEME<CustomizedSwitches />
+                           <CustomizedSwitches />
                         </Button>
                     </Box>
 

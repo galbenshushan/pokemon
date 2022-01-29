@@ -47,8 +47,8 @@ export default function LvAttacks({ move }) {
                     </h4>
                     <h5>Moves learnt by level up</h5>
                     <table style={{ width: '50rem' }} className="first table">
-                        <thead>
-                            <tr style={dynamicText}>
+                        <thead style={dynamicText}>
+                            {/* <tr > */}
                                 <th style={dynamicText} scope="col">Lv</th>
                                 <th style={dynamicText} scope="col">Move</th>
                                 <th style={dynamicText} scope="col">Type</th>
@@ -56,7 +56,7 @@ export default function LvAttacks({ move }) {
                                 <th style={dynamicText} scope="col">Power</th>
                                 <th style={dynamicText} scope="col">Accuracy</th>
                                 <th style={dynamicText} scope="col">Description</th>
-                            </tr>
+                            {/* </tr> */}
                         </thead>
                         <tbody>
                             <>{move.sort((a, b) => a.atLv - b.atLv).map((move, idx) =>

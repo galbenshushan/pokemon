@@ -1,0 +1,24 @@
+.imgWho{
+    width:35rem;
+}
+
+.who{
+    width: 40rem;
+    height: 45rem;
+    background: radial-gradient(circle, rgba(63,184,251,1) 20%, rgba(252,70,70,1) 49%);
+    /* padding-bottom: 50rem; */
+}
+.whoEnd{
+    width: 40rem;
+    height: 45rem;
+    /* padding-bottom: 50rem; */
+}
+
+.whosThatPokemon{
+    
+}
+
+.containe{
+    padding-top: 3rem;
+}
+

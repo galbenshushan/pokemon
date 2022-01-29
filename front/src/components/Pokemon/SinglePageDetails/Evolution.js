@@ -21,7 +21,7 @@ const Evolution = ({ evolutionLineOne, evolutionLineTwo, evolutionLineThree, dyn
                                     {pokemon.howEv && pokemon.howEv.map((ev, idxx) =>
                                         <EvolutionOperation className='oper' key={idxx} ev={ev} />)}
                                     {indx !== 0 && <ImArrowRight className='arrow' style={dynamicText} />}
-                                    <Link to={`/PokemonList/${pokemon.name}`}>
+                                    <Link to={`/Pokedex/${pokemon.name}`}>
                                         <Tooltip TransitionComponent={Zoom}
                                             title={<h6>{pokemon.name}</h6>}>
                                             <img className='img imgRes' src={pokemon.image} width='100rem' />

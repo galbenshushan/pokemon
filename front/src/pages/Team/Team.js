@@ -9,7 +9,6 @@ import { getItemFromLocalStorage, setItemToLocalStorage } from '../../helpers/lo
 
 const Team = () => {
 
-
     const user = useSelector(state => state.auth)
 
     const [pokemonTeam, setPokemonTeam] = useState([])
@@ -42,7 +41,6 @@ const Team = () => {
         setPokemonTeam(team)
     }
 
-
     const levelUpHandler = (params) => setlevelUpsInBattle(params);
 
     const getFromBattle = (params) => setPokemonTeam(params)
@@ -58,8 +56,10 @@ const Team = () => {
                     <Typography
                         variant="h6"
                         noWrap
+                        style={dynamicText}
                         component="div"
                         sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+                        <BattleModal getFromBattle={getFromBattle} levelUpHandler={levelUpHandler} team={team} />
                     </Typography>
                     {team.length > 0 && <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                         <Button style={dynamicText}

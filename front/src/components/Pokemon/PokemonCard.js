@@ -9,7 +9,6 @@ import Zoom from '@mui/material/Zoom';
 import { Link } from 'react-router-dom';
 import { BsStars } from "react-icons/bs";
 import { useLocation } from 'react-router-dom/cjs/react-router-dom.min';
-import { getItemFromLocalStorage } from '../../helpers/localStorage';
 import { GiCheckMark } from 'react-icons/gi';
 import NicknameContainer from '../Pokemon/CardDetails/NicknameContainer'
 import ReleasePokemon from './CardDetails/ReleasePokemon';
@@ -21,13 +20,9 @@ const PokemonCard = ({ pokemon, onRelease, onNickname }) => {
 
   const toUpper = (x) => x.charAt(0).toUpperCase() + x.slice(1).toLowerCase();
 
-  const user = useSelector(state => state.auth)
-
   const themeSlice = useSelector(state => state.theme)
 
   const [isAnimated, setIsAnimated] = useState(true)
-
-  const [isInTeam, setisInTeam] = useState(false)
 
   const isShiny = pokemon.isShiny % 9 === 2
 
@@ -50,16 +45,14 @@ const PokemonCard = ({ pokemon, onRelease, onNickname }) => {
     }),
   }));
 
-  const teamToCheck = getItemFromLocalStorage(`myteam${user.user._id}`)
-
   useEffect(() => {
-    const exist = teamToCheck.find((poke) => poke.id === pokemon.id)
-    if (exist) setisInTeam(true)
-  }, [teamToCheck])
-
-  useEffect(() => {
-    setTimeout(() => setIsAnimated(false), 1000);
-  }, [])
+    const aborted = new AbortController();
+    let timmer = setTimeout(() => setIsAnimated(false), 1000);
+    return () => {
+      clearTimeout(timmer)
+      aborted.abort()
+    }
+  }, [pokemon]);
 
   return (
     <Card
@@ -82,8 +75,7 @@ const PokemonCard = ({ pokemon, onRelease, onNickname }) => {
               <ExpandMoreIcon style={dynamicText} />
             </ExpandMore>}
 
-
-          {location.pathname === '/PokemonList' && isInTeam === true &&
+          {location.pathname === '/Pokedex' &&
             <Tooltip TransitionComponent={Zoom}
               title={<h6>{pokemon.name} is in your team!</h6>}>
               <IconButton style={{ cursor: 'default' }} aria-label="share">
@@ -101,8 +93,8 @@ const PokemonCard = ({ pokemon, onRelease, onNickname }) => {
         </>}
 
         title={<h4 style={dynamicText} className='header'>
-          {location.pathname === '/PokemonList' ? `#${pokemon.id}` : ``} {pokemon.nickname || toUpper(pokemon.name)}
-          {location.pathname === '/PokemonList' ? `` : ` Lv.${pokemon.level}` ?? `Lv.1`}
+          {location.pathname === '/Pokedex' ? `#${pokemon.id}` : ``} {pokemon.nickname || toUpper(pokemon.name)}
+          {location.pathname === '/Pokedex' ? `` : ` Lv.${pokemon.level}` ?? `Lv.1`}
         </h4>}
         subheader={pokemon.types.map((type, idx) =>
           <div key={idx} className={'btnType type' + (type.type.name)}>
@@ -112,11 +104,11 @@ const PokemonCard = ({ pokemon, onRelease, onNickname }) => {
           </div>)} />
 
       {!isShiny && location.pathname === '/team' &&
-        <Link to={`/PokemonList/${pokemon.name}`}>
+        <Link to={`/Pokedex/${pokemon.name}`}>
           <img alt="pokemon" src={pokemon.image} className='pokemonImage' />
         </Link>}
       {isShiny && location.pathname === '/team' &&
-        <Link to={`/PokemonList/${pokemon.name}`}>
+        <Link to={`/Pokedex/${pokemon.name}`}>
           <img alt="pokemon" src={pokemon.shinyImage} className='pokemonImage' />
           <Tooltip TransitionComponent={Zoom} title={<h6>Wow! your {toUpper(pokemon.name)} is Shiny!<br />It's very rare!</h6>}>
             <IconButton aria-label="add to favorites">
@@ -126,13 +118,13 @@ const PokemonCard = ({ pokemon, onRelease, onNickname }) => {
         </Link>}
       <div className='images wrapper'>
 
-        {location.pathname === '/PokemonList' &&
+        {location.pathname === '/Pokedex' &&
           <>
-            <Link to={`/PokemonList/${pokemon.name}`}>
+            <Link to={`/Pokedex/${pokemon.name}`}>
               <img alt="pokemon" className='pokemonImage sprite first' src={pokemon.image} />
             </Link>
 
-            <Link to={`/PokemonList/${pokemon.name}`}>
+            <Link to={`/Pokedex/${pokemon.name}`}>
               <img alt="pokemon" className='pokemonImage sprite second' src={pokemon.shinyImage} />
             </Link>
           </>}

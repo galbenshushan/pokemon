@@ -78,11 +78,11 @@ const StarterCard = ({ pokemon }) => {
 
                 {location.pathname === '/team/starters' &&
                     <>
-                        <Link to={`/PokemonList/${pokemon.name}`}>
+                        <Link to={`/Pokedex/${pokemon.name}`}>
                             <img className='sprite first' alt="pokemon" className='pokemonImage' src={pokemon.image} />
                         </Link>
 
-                        <Link to={`/PokemonList/${pokemon.name}`}>
+                        <Link to={`/Pokedex/${pokemon.name}`}>
                             <img className='sprite second' alt="pokemon" className='pokemonImage' src={pokemon.shinyImage} />
                         </Link>
                     </>}

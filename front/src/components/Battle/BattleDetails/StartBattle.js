@@ -56,7 +56,6 @@ const StartBattle = ({ style, battleArr, themeSlice, rival, setOtherPokemon, set
 
     let indx = battleArr.indexOf(firstPokemon)
 
-
     const hitEffected = (e) => {
         setShowAttacks(false)
         setMeAttacking(true)
@@ -353,7 +352,7 @@ const StartBattle = ({ style, battleArr, themeSlice, rival, setOtherPokemon, set
                         <div className='first'>
                             {notifications !== '' && <h3>{notifications}</h3>}
                         </div>
-                        <div style={{ float: 'right', maxWidth: '22rem', height: '5rem' }} className='second'>
+                        <div style={{ float: 'right', maxWidth: '22rem', height: '4.5rem' }} className='second'>
                             <Fragment>
                                 {myTurn === true && showAttacks === false && <>
                                     <Button style={{ width: '11rem', color: 'black' }} variant="contained" color="inherit" onClick={() => setShowAttacks(true)}>

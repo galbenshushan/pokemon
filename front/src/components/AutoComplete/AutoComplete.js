@@ -24,10 +24,12 @@ const AutoComplete = () => {
     const themeSlice = useSelector(state => state.theme)
 
     const getPokemon = useCallback(async (e) => {
+        const aborted = new AbortController()
+        aborted.abort()
         setPokemonData([])
         setDisplay(false)
         setCursor(-1)
-        const res = await fetch('https://pokeapi.co/api/v2/pokedex/1')
+        const res = await fetch('https://pokeapi.co/api/v2/pokedex/1', aborted.signal)
         const data = await res.json()
         const pokemonArr = data.pokemon_entries
         pokemonArr.map(async pokemon => {
@@ -83,12 +85,12 @@ const AutoComplete = () => {
         }
         if (e.key === 'Enter') {
             if (cursor > -1) {
-                history.replace(`/PokemonList/${pokemonData[cursor].name}`)
+                history.replace(`/Pokedex/${pokemonData[cursor].name}`)
             }
             if (cursor === -1) {
                 pokemonData.forEach(pokemon => {
                     if (pokemon.name === inputRef.current.value) {
-                        history.replace(`/PokemonList/${pokemon.name}`)
+                        history.replace(`/Pokedex/${pokemon.name}`)
                     } else return;
                 });
             }

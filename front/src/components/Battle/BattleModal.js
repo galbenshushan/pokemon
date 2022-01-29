@@ -59,42 +59,48 @@ const BattleModal = ({ getFromBattle, levelUpHandler }) => {
             setTimeout(() => setSwitcher(true), 200);
         } else return
     }
-
+    
     const switchModals = () => {
         setSwitcher(false)
         handleClose()
     }
-
+    
     const rndPokemon = Math.round(Math.random() * 898)
-
+    
     const getDetails = async () => {
-        const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${rndPokemon}`)
-        const data = await res.json()
-        data.isShiny = Math.ceil(Math.random() * 2000)
-        data.level = 1
-        data.icon = data.sprites.versions["generation-viii"]["icons"]["front_default"]
-        data.image = data.sprites.other.home.front_default
-        data.shinyImage = data.sprites.other.home.front_shiny
-        setRival(data)
-    }
-
-    const setOtherPokemon = (fainted) => {
-        setFaintedCheck(fainted);
-        if (fainted === 0) {
-            getDetails()
-            return
+        const aborted = new AbortController()
+        try {
+            aborted.abort()
+            const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${rndPokemon}`, aborted.signal)
+            const data = await res.json()
+            data.isShiny = Math.ceil(Math.random() * 2000)
+            data.level = 1
+            data.icon = data.sprites.versions["generation-viii"]["icons"]["front_default"]
+            data.image = data.sprites.other.home.front_default
+            data.shinyImage = data.sprites.other.home.front_shiny
+            setRival(data)
+        } catch (err) {
+            console.log({err});
         }
-    }
-
+        }
+        
+        const setOtherPokemon = (fainted) => {
+            setFaintedCheck(fainted);
+            if (fainted === 0) {
+                getDetails()
+                return
+            }
+        }
+    
     useEffect(() => setItemToLocalStorage('battleteam', battleArr), [battleArr.length])
 
     useEffect(() => getFromBattle(initialTeamForBattle), [battleArr.length])
 
     useEffect(() => setInitialTeamForBattle(team), [])
 
-    useEffect(() => setBattleArr([]), [team.length])
-
     useLayoutEffect(() => setInitialTeamForBattle(team), [team.length])
+
+    useLayoutEffect(() => setBattleArr([team[0]]), [team.length])
 
     useEffect(() => getDetails(), [])
 
@@ -108,12 +114,12 @@ const BattleModal = ({ getFromBattle, levelUpHandler }) => {
                 aria-labelledby="modal-modal-title"
                 aria-describedby="modal-modal-description">
                 <>
-                    {switcher === false && <Box style={{ textAlign: 'center' }} sx={style}>
-                        <IconButton style={{ float: 'left' }} onClick={switchModals} aria-label="add to favorites">
+                    {switcher === false && <Box style={{ textAlign: 'center' }} className='modalMBL' sx={style}>
+                        <IconButton style={{ float: 'left' }} onClick={switchModals} aria-label="">
                             <AiOutlineClose style={{ color: themeSlice === false ? 'white' : 'black', fontSize: '3rem' }} />
                         </IconButton>
                         <h3>Choose Pokemons for the battle</h3>
-                        {battleArr.length > 0 && <div style={{ display: 'inline-block' }}>
+                        {battleArr.length > 0 && <div className='chooseMBL' style={{ display: 'inline-block' }}>
                             {battleArr.map((pokemon, idx) =>
                                 <BattlePartners key={idx}
                                     pokemon={pokemon}
@@ -149,6 +155,7 @@ const BattleModal = ({ getFromBattle, levelUpHandler }) => {
                             themeSlice={themeSlice}
                             switchModals={switchModals}
                             battleArr={battleArr}
+                            setBattleArr={setBattleArr}
                             style={style}
                             rival={rival} />}
                 </>

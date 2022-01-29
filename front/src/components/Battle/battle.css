@@ -138,13 +138,16 @@
     position: fixed;
     top:38.8rem;
     left:6rem;
+    height: 5rem;
     z-index: 999;
     width: 80.5%;
     border:1px solid rgb(26, 26, 26);
     height: 4.7rem;
     background-color: rgb(8, 26, 19);
 }
-
+.checkk{
+  
+}
 
 .no-move{
     display:none !important;
@@ -258,3 +261,104 @@
       0%       { transform: translatex(-20px) translatey(250px) }
       100%     { transform: translatex(750px) translatey(-150px) } 
   }
+
+
+  @media only screen and (max-width: 475px) {
+
+    .battle-card{
+      width: 7rem;
+    }
+    .pokemonImageBattle{
+      width: 6rem;
+    }
+    .card-group{
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+      flex-direction: row;
+      margin-top: 0rem;
+      margin-left:16rem;
+      max-width: 50%;
+      scrollbar-width: thin;
+    }
+
+    .battleBackgroud{
+      position: relative;
+      bottom:4rem;
+      z-index: -1;
+      width: 1rem;
+    }
+    
+    .battleOperations{
+        border: 1px solid black;
+        position: fixed;
+        width: 30rem;
+        height: 4rem;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        flex-direction: row;
+        margin-top: 0rem;
+        margin-left:16rem;
+        max-width: 50%;
+        scrollbar-width: thin;
+
+    }
+}
+
+
+@media only screen and (max-height: 475px)and (max-width: 900px) {
+
+  .currentPrtp{
+    width: 15rem;
+    position: fixed;
+    top: 17rem;
+    left:7rem;    
+}
+.currentRival{
+  position: relative;
+    width: 15rem;
+    position: fixed;
+    top: 9rem;
+    left:44rem;    
+}
+.prtcp{
+  position: relative;
+  width: 20rem;
+  position: fixed;
+  top: 23rem;
+  left:37rem;    
+}
+.rvl{
+  position: relative;
+    width: 20rem;
+    position: fixed;
+    top: 12rem;
+    left:18rem;    
+}
+  
+  .battleOperations{
+    position: absolute;
+    top:30rem;
+    left:8.3rem;
+    width: 77%;
+  }
+  
+  .battle-card{
+    width: 7rem;
+  }
+  .pokemonImageBattle{
+    width: 6rem;
+  }
+  .card-group{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    flex-direction: row;
+    margin-top: 4rem;
+    margin-left:16rem;
+    max-width: 50%;
+    scrollbar-width: thin;
+  }
+
+}

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
-import BasicModal from '../../UI/Modal'
 import '../card.css'
 import LvAttacks from './LvAttacks'
 import TmAttacks from './TmAttacks'

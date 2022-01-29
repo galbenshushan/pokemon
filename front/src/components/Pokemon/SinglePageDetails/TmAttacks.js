@@ -46,19 +46,17 @@ export default function TmAttacks({ move }) {
                     </h4>
                     <h5>{move.length !== 0 ? 'Moves learnt by TM' : 'This Pokemon can not learn any move by TM'} </h5>
                     {move.length !== 0 && <table style={{ width: '50rem' }} className="first table">
-                        <thead>
-                            <tr style={dynamicText}>
-                                <th style={dynamicText} scope="col"></th>
-                                <th style={dynamicText} scope="col">Move</th>
-                                <th style={dynamicText} scope="col">Type</th>
-                                <th style={dynamicText} scope="col">PP</th>
-                                <th style={dynamicText} scope="col">Power</th>
-                                <th style={dynamicText} scope="col">Accuracy</th>
-                                <th style={dynamicText} scope="col">Description</th>
-                            </tr>
+                        <thead style={dynamicText}>
+                            <th style={dynamicText} scope="col"></th>
+                            <th style={dynamicText} scope="col">Move</th>
+                            <th style={dynamicText} scope="col">Type</th>
+                            <th style={dynamicText} scope="col">PP</th>
+                            <th style={dynamicText} scope="col">Power</th>
+                            <th style={dynamicText} scope="col">Accuracy</th>
+                            <th style={dynamicText} scope="col">Description</th>
                         </thead>
                         <tbody>
-                            <>{move.map((move, idx) =>
+                            {move.map((move, idx) =>
                                 <tr key={idx}>
                                     <th style={dynamicText} scope="row"></th>
                                     <td style={dynamicText}><p>
@@ -75,7 +73,7 @@ export default function TmAttacks({ move }) {
                                     <td style={dynamicText} scope="col">{move.accuracy ? move.accuracy : '-'}</td>
                                     <td style={dynamicText} scope="col"><BasicModal move={move} /> </td>
                                 </tr>
-                            )}</>
+                            )}
                         </tbody>
                     </table>}
                 </Box>

@@ -9,7 +9,7 @@ const AcItem = ({ pokemon, isMarked }) => {
     const themeSlice = useSelector(state => state.theme)
 
     return (
-        <li onClick={() => history.replace(`/PokemonList/${pokemon.name}`)}
+        <li onClick={() => history.replace(`/Pokedex/${pokemon.name}`)}
             className={themeSlice === false ? `autocomplete-item-dark${isMarked ? 'active' : ''}` : `autocomplete-item${isMarked ? 'active' : ''}`}>
             <img className='autocomplete-image' src={pokemon.image} />
             <p className='pokemon-name'>#{pokemon.id} {pokemon.name}</p>

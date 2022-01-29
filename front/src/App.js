@@ -3,10 +3,10 @@ import './App.css';
 import Footer from './pages/Footer/Footer';
 import Navbar from './pages/Navbar/Navbar';
 import { useSelector } from "react-redux";
-import PokemonList from './components/PokemonList/PokemonList';
+import Pokedex from './components/Pokedex/Pokedex';
 import Team from './pages/Team/Team';
 import Home from './pages/Home/Home';
-import { Redirect, Route, Switch } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import SinglePokemon from './components/Pokemon/SinglePokemonPage';
 import PrimarySearchAppBar from './pages/Navbar/Navv';
 import Login from './components/Auth/Login';
@@ -14,14 +14,13 @@ import Register from './components/Auth/Register';
 import Starters from './components/Starters/Starters';
 import About from './pages/About/About';
 import NotFound from './pages/404/NotFound';
+import WhosThatPokemon from './components/WhosThatPokemon/WhosThatPokemon';
 
 function App() {
 
   const user = useSelector(state => state.auth)
 
   const themeSlice = useSelector(state => state.theme)
-
-  const createRedirect = to => () => <Redirect to={to} />
 
   return (
     <div style={{ backgroundColor: themeSlice === false ? 'rgb(30,30, 32)' : 'white' }} className="App">
@@ -35,9 +34,10 @@ function App() {
         <Route path="/login" exact component={Login} />
         <Route path="/register" exact component={Register} />
         {user.isAuth && <Route path="/team/starters" exact component={Starters} />}
-        {user.isAuth && <Route path="/PokemonList/:id" exact component={SinglePokemon} />}
-        {user.isAuth && <Route path="/PokemonList" exact component={PokemonList} />}
-        <Route path="/PokemonList/notFound" exact component={NotFound} />
+        {user.isAuth && <Route path="/Pokedex/:id" exact component={SinglePokemon} />}
+        {user.isAuth && <Route path="/Pokedex" exact component={Pokedex} />}
+        {user.isAuth && <Route path="/quiz" exact component={WhosThatPokemon} />}
+        <Route path="/Pokedex/notFound" exact component={NotFound} />
         <Route path="*" exact component={NotFound} />
       </Switch>
       <Footer />

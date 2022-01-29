@@ -4,8 +4,6 @@ const EvolutionOperation = ({ ev }) => {
 
     const [evolutionItem, setEvolutionItem] = useState('')
 
-    const [location, setLocation] = useState('')
-
     useLayoutEffect(() => {
         if (ev.key === 'item') {
             fetch(ev.vval.url)
