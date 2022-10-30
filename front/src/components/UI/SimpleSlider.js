@@ -1,6 +1,6 @@
-import React from 'react';
-import Slider from 'infinite-react-carousel';
- 
+import React from "react";
+import Slider from "infinite-react-carousel";
+
 const SimpleSlider = () => (
   <Slider dots>
     <div>
@@ -21,5 +21,5 @@ const SimpleSlider = () => (
       <h3>5</h3>
     </div>
   </Slider>
-)
-export default SimpleSlider
+);
+export default SimpleSlider;
