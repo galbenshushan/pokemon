@@ -27,10 +27,6 @@ const Team = () => {
 
   const dynamicText = { color: themeSlice === false ? "white" : "black" };
 
-  const [anchorElNav, setAnchorElNav] = useState(null);
-
-  const handleCloseNavMenu = () => setAnchorElNav(null);
-
   const router = useHistory();
 
   const releaseFromTeam = useCallback(
@@ -83,7 +79,7 @@ const Team = () => {
             <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
               <Button
                 style={dynamicText}
-                onClick={handleCloseNavMenu}
+                // onClick={handleCloseNavMenu}
                 sx={{ my: 2, mx: 5, display: "block" }}
               >
                 <BattleModal
@@ -103,6 +99,46 @@ const Team = () => {
           <h3 className="team-header" style={dynamicText}>
             My Team
           </h3>
+        )}
+        {team.length > 0 && (
+          <>
+            <div
+              style={{
+                color: themeSlice === false ? "white" : "black",
+                fontSize: "20px",
+              }}
+            >
+              You can take your Pokemon to a
+              <button
+                onClick={handleOpen}
+                className="game-button"
+                style={{
+                  color: themeSlice === false ? "white" : "black",
+                  backgroundColor: themeSlice === false ? "black" : "white",
+                }}
+              >
+                Battle
+              </button>{" "}
+              and make them stronger!
+              <br />
+              Or
+              <br />
+             Wanna play <button
+                onClick={() => {
+                  router.push("/quiz");
+                }}
+                className="game-button"
+                style={{
+                  color: themeSlice === false ? "white" : "black",
+                  backgroundColor: themeSlice === false ? "black" : "white",
+                }}
+              >
+                Who's that pokemon?
+              </button>{" "}
+             
+            </div>
+            <br />
+          </>
         )}
         {team.length === 0 && (
           <div>
@@ -125,33 +161,6 @@ const Team = () => {
               />
             ))}
         </div>
-        {team.length > 0 && (
-          <>
-            <button
-              onClick={handleOpen}
-              className="game-button"
-              style={{
-                color: themeSlice === false ? "white" : "black",
-                backgroundColor: themeSlice === false ? "black" : "white",
-              }}
-            >
-              Battle
-            </button>
-            <br />
-            <button
-              onClick={() => {
-                router.push("/quiz");
-              }}
-              className="game-button"
-              style={{
-                color: themeSlice === false ? "white" : "black",
-                backgroundColor: themeSlice === false ? "black" : "white",
-              }}
-            >
-              Who's that pokemon?
-            </button>
-          </>
-        )}
       </div>
     </div>
   );

@@ -1,5 +1,5 @@
 import "./App.css";
-import Footer from "./pages/Footer/Footer";
+import Footer from "./components/Footer/Footer";
 // import Navbar from "./pages/Navbar/Navbar";
 import { useSelector } from "react-redux";
 import Pokedex from "./components/Pokedex/Pokedex";

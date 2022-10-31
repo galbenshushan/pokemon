@@ -1,15 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
-import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
-import Menu from "@mui/material/Menu";
-import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
-import MenuItem from "@mui/material/MenuItem";
-import { Link } from "react-router-dom";
 import darkLogo from "../../images/darkLogo.png";
 import lightLogo from "../../images/lightLogo.png";
 import { useSelector } from "react-redux";
@@ -20,19 +15,18 @@ import UseLogout from "../../hooks/UseLogout";
 import userLogo from "../../images/trainerLogo.png";
 import logo from "../../images/logo2.png";
 import logo1 from "../../images/logo3.png";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import MobileMode from "./MobileMode";
+import NavButton from "./NavButton";
 
 const ResponsiveAppBar = () => {
   const { logout } = UseLogout();
 
   const user = useSelector((state) => state.auth);
 
-  const [anchorElNav, setAnchorElNav] = useState(null);
-
-  const handleOpenNavMenu = (event) => setAnchorElNav(event.currentTarget);
-
-  const handleCloseNavMenu = () => setAnchorElNav(null);
-
   const themeSlice = useSelector((state) => state.theme);
+
+  const router = useHistory();
 
   const dynamicText = {
     color: themeSlice === false ? "white" : "black",
@@ -54,7 +48,7 @@ const ResponsiveAppBar = () => {
           height: "fit-content",
         }}
         className="site-header"
-      ></div>
+      />
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography
@@ -71,62 +65,7 @@ const ResponsiveAppBar = () => {
               />
             </div>
           </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
-            <IconButton
-              size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleOpenNavMenu}
-              color="inherit"
-            >
-              <MenuIcon />
-            </IconButton>
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: "bottom",
-                horizontal: "left",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "left",
-              }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
-              sx={{ display: { xs: "block", md: "none" } }}
-            >
-              {user.isAuth && (
-                <Link className="nav-itemm" to="/Pokedex">
-                  <MenuItem onClick={handleCloseNavMenu}>
-                    <Typography textAlign="center">Pokedex</Typography>
-                  </MenuItem>
-                </Link>
-              )}
-              {user.isAuth && (
-                <Link className="nav-itemm" to="/team">
-                  <MenuItem onClick={handleCloseNavMenu}>
-                    <Typography textAlign="center">Team</Typography>
-                  </MenuItem>
-                </Link>
-              )}
-              <Link className="nav-itemm" to="Home">
-                <MenuItem onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">Home</Typography>
-                </MenuItem>
-              </Link>
-              <Link className="nav-itemm" to="Home">
-                <MenuItem onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">About</Typography>
-                </MenuItem>
-              </Link>
-              <Box sx={{ flexGrow: 0 }} style={dynamicText}>
-                <CustomizedSwitches />
-              </Box>
-            </Menu>
-          </Box>
+          <MobileMode user={user} dynamicText={dynamicText} />
           <Typography
             variant="h6"
             noWrap
@@ -140,48 +79,26 @@ const ResponsiveAppBar = () => {
             />
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-            <Link className="nav-itemm" to="/home">
-              <Button
-                style={dynamicText}
-                className="nav-itemm"
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, mx: 5, display: "block" }}
-              >
-                Home
-              </Button>
-            </Link>
-            <Link className="nav-itemm" to="/Pokedex">
-              {user.isAuth && (
-                <Button
-                  style={dynamicText}
-                  className="nav-itemm"
-                  onClick={handleCloseNavMenu}
-                  sx={{ my: 2, mx: 5, display: "block" }}
-                >
-                  Pokedex
-                </Button>
-              )}
-            </Link>
-            <Link className="nav-itemm" to="/About">
-              <Button
-                style={dynamicText}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, mx: 5, display: "block" }}
-              >
-                About
-              </Button>
-            </Link>
+            <NavButton name={"Home"} route={"home"} dynamicText={dynamicText} />
             {user.isAuth && (
-              <Link className="nav-itemm" to="/team">
-                <Button
-                  style={dynamicText}
-                  className="nav-item-text"
-                  onClick={handleCloseNavMenu}
-                  sx={{ my: 2, mx: 5, display: "block" }}
-                >
-                  My Team
-                </Button>
-              </Link>
+              <NavButton
+                name={"Pokedex"}
+                route={"Pokedex"}
+                dynamicText={dynamicText}
+              />
+            )}
+
+            <NavButton
+              name={"About"}
+              route={"About"}
+              dynamicText={dynamicText}
+            />
+            {user.isAuth && (
+              <NavButton
+                name={"My Team"}
+                route={"team"}
+                dynamicText={dynamicText}
+              />
             )}
             <Button style={dynamicText}>
               <CustomizedSwitches />
@@ -190,15 +107,14 @@ const ResponsiveAppBar = () => {
 
           <Box className="nav-itemm" sx={{ flexGrow: 0 }} style={dynamicText}>
             {!user.isAuth && (
-              <Link className="nav-itemm" to="/login">
-                <Button
-                  style={dynamicText}
-                  onClick={handleCloseNavMenu}
-                  sx={{ my: 2, mx: 5, display: "block" }}
-                >
-                  Log in
-                </Button>
-              </Link>
+              <Button
+                style={dynamicText}
+                className="nav-itemm"
+                onClick={() => router.push("/login")}
+                sx={{ my: 2, mx: 5, display: "block" }}
+              >
+                Log in
+              </Button>
             )}
           </Box>
           <Box className="nav-itemm" sx={{ flexGrow: 0 }} style={dynamicText}>
@@ -207,8 +123,8 @@ const ResponsiveAppBar = () => {
                 title={
                   <Button
                     style={dynamicText}
-                    className="nav-item-text"
-                    onClick={handleCloseNavMenu}
+                    className="nav-item-text nav-itemm"
+                    // onClick={handleCloseNavMenu}
                     sx={{ my: 2, mx: 5, display: "block" }}
                   >
                     {user.user.first_name}
@@ -221,37 +137,37 @@ const ResponsiveAppBar = () => {
                 }
                 id="basic-nav-dropdown"
               >
-                {user.user.email === "galbenshushan5@gmail.com" &&
+                {/* {user.user.email === "galbenshushan5@gmail.com" &&
                   user.isAuth && (
                     <NavDropdown.Item href="#action/3.1">
                       Admin Dashboard
                     </NavDropdown.Item>
                   )}
-                <NavDropdown.Divider />
-                <NavDropdown.Item href="#action/3.2">Account</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.3">
+                <NavDropdown.Divider /> */}
+                {/* <NavDropdown.Item href="#action/3.2">Account</NavDropdown.Item> */}
+                {/* <NavDropdown.Item href="#action/3.3">
                   <Link
                     style={{ color: "black", textDecoration: "none" }}
                     to="/team"
                   >
                     Team
                   </Link>
+                </NavDropdown.Item> */}
+                {/* <NavDropdown.Divider /> */}
+                <NavDropdown.Item onClick={logout} className="nav-itemm">
+                  Log out
                 </NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.3">Avatar</NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item onClick={logout}>Log out</NavDropdown.Item>
               </NavDropdown>
             )}
             {!user.isAuth && (
-              <Link className="nav-itemm" to="/register">
-                <Button
-                  style={dynamicText}
-                  onClick={handleCloseNavMenu}
-                  sx={{ my: 2, mx: 5, display: "block" }}
-                >
-                  Register
-                </Button>
-              </Link>
+              <Button
+                className="nav-itemm"
+                style={dynamicText}
+                onClick={() => router.push("/register")}
+                sx={{ my: 2, mx: 5, display: "block" }}
+              >
+                Register
+              </Button>
             )}
           </Box>
         </Toolbar>

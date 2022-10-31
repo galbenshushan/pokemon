@@ -15,11 +15,14 @@ import ReleasePokemon from "./CardDetails/ReleasePokemon";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import "./card.css";
 import StatsCollapse from "./CardDetails/StatsCollapse";
+import { getItemFromLocalStorage } from "../../helpers/localStorage";
 
 const PokemonCard = ({ pokemon, onRelease, onNickname }) => {
   const toUpper = (x) => x.charAt(0).toUpperCase() + x.slice(1).toLowerCase();
 
   const themeSlice = useSelector((state) => state.theme);
+
+  const user = useSelector((state) => state.auth);
 
   const [isAnimated, setIsAnimated] = useState(true);
 
@@ -30,6 +33,10 @@ const PokemonCard = ({ pokemon, onRelease, onNickname }) => {
   const dynamicText = { color: themeSlice === false ? "white" : "black" };
 
   const [expanded, setExpanded] = useState(false);
+
+  let team = getItemFromLocalStorage(`myteam${user.user._id}`) || [];
+
+  const exist = team.find((poke) => poke.id === pokemon.id);
 
   const handleExpandClick = () => setExpanded(!expanded);
 
@@ -85,7 +92,7 @@ const PokemonCard = ({ pokemon, onRelease, onNickname }) => {
               </ExpandMore>
             )}
 
-            {location.pathname === "/Pokedex" && (
+            {location.pathname === "/Pokedex" && exist && (
               <Tooltip
                 TransitionComponent={Zoom}
                 title={<h6>{pokemon.name} is in your team!</h6>}
