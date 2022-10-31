@@ -135,7 +135,7 @@ const Team = () => {
               >
                 Who's that pokemon?
               </button>{" "}
-             
+              and get Pokemons! 
             </div>
             <br />
           </>
