@@ -1,0 +1,45 @@
+.footer-design{
+    width: 100%;
+    height: fit-content;
+    color: white;
+    margin-top: 12rem;
+}
+
+.after-footer{
+    height: 6rem;
+    color: white;
+    opacity: 80%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+}
+
+.footer-list{
+    text-decoration: none;
+    list-style-type: none;
+    line-height: 200%;
+}
+
+.after-footer-copyright{
+    flex: 1;
+    padding-top: 1.5vh;
+}
+
+.after-footer-icons{
+    flex: 1;
+    font-size: xx-large;
+    padding-right: 15vw; 
+    
+}
+
+.footer-icon{
+    width: fit-content;
+    font-size: 3rem;
+}
+
+.footer-icon:hover{
+    color: rgb(0, 153, 255);
+    transform: rotate(1turn);
+}
+

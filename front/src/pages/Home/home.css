@@ -11,11 +11,11 @@
 }
 
 a{
-    color:rgb(179, 182, 7);
+    color:rgb(179, 186, 255);
     transition: 0.3s;
 }
 a:hover{
-    color:rgb(182, 112, 7);
+    color:rgb(65, 65, 255);
     transition: 0.3s;
 
 }

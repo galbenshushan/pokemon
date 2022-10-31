@@ -1,5 +1,5 @@
-export const setItemToLocalStorage = (storageName, arr) =>{ localStorage.setItem(storageName, JSON.stringify(arr));
+export const setItemToLocalStorage = (str, value) =>{ localStorage.setItem(str, JSON.stringify(value));
 }
-export const getItemFromLocalStorage = (storageName) => JSON.parse(localStorage.getItem(storageName));
+export const getItemFromLocalStorage = (str) => JSON.parse(localStorage.getItem(str));
 
-export const deleteFromLocalStorage = (storageName) => localStorage.removeItem(`${storageName}`);
+export const deleteFromLocalStorage = (str) => localStorage.removeItem(`${str}`);

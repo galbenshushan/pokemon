@@ -14,7 +14,12 @@ import BattlePartners from "./BattleDetails/BattlePartners";
 import BattleIntro from "./BattleDetails/BattleIntro";
 import StartBattle from "./BattleDetails/StartBattle";
 
-const BattleModal = ({ getFromBattle, levelUpHandler }) => {
+const BattleModal = ({
+  getFromBattle = () => {},
+  levelUpHandler = () => {},
+  open,
+  setOpen = () => {},
+}) => {
   const user = useSelector((state) => state.auth);
 
   const team = getItemFromLocalStorage(`myteam${user.user._id}`);
@@ -37,8 +42,6 @@ const BattleModal = ({ getFromBattle, levelUpHandler }) => {
     p: 4,
   };
 
-  const [open, setOpen] = useState(false);
-
   const [faintedCheck, setFaintedCheck] = useState();
 
   const [initialTeamForBattle, setInitialTeamForBattle] = useState([]);
@@ -48,8 +51,6 @@ const BattleModal = ({ getFromBattle, levelUpHandler }) => {
   const [battleArr, setBattleArr] = useState([]);
 
   const [rival, setRival] = useState();
-
-  const handleOpen = () => setOpen(true);
 
   const handleClose = () => setOpen(false);
 
@@ -116,12 +117,6 @@ const BattleModal = ({ getFromBattle, levelUpHandler }) => {
 
   return (
     <>
-      <div
-        onClick={handleOpen}
-        style={{ color: themeSlice === false ? "white" : "black" }}
-      >
-        BATTLE
-      </div>
       <div
         style={{
           backgroundColor: themeSlice === false ? "rgb(30,30, 32)" : "white",

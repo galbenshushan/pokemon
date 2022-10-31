@@ -102,35 +102,7 @@ const Pokedex = ({}) => {
                 <Typography textAlign="center">Who's that pokemon?</Typography>
               </Link>
             </Typography>
-            <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-              <Link className="nav-itemm" to="/quiz">
-                <Button
-                  style={dynamicText}
-                  onClick={handleCloseNavMenu}
-                  sx={{ my: 2, mx: 5, display: "block" }}
-                >
-                  <Typography textAlign="center">
-                    Who's that pokemon?
-                  </Typography>
-                </Button>
-              </Link>
-              <NavDropdown
-                title={
-                  <Button
-                    style={dynamicText}
-                    className="nav-item-text"
-                    onClick={handleCloseNavMenu}
-                    sx={{ my: 1, mx: 2, display: "block" }}
-                  >
-                    more
-                  </Button>
-                }
-                id="basic-nav-dropdown"
-              >
-                <NavDropdown.Item>Poke-Tetris (Comming soon)</NavDropdown.Item>
-                <NavDropdown.Divider />
-              </NavDropdown>
-            </Box>
+            
             <AutoComplete />
           </Toolbar>
         </Container>

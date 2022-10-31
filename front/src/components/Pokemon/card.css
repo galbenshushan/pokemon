@@ -26,6 +26,7 @@
     width: 27rem;
     min-height: 25rem;
     height: fit-content;
+    zoom: 85%;
 
 }
 .card:hover{

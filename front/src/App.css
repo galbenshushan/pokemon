@@ -1,7 +1,6 @@
 .App {
   text-align: center;
-  transition:0.3s
-
+  transition: 0.3s;
 }
 
 .App-logo {
@@ -37,4 +36,38 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+input {
+  text-indent: 15px;
+}
+
+.team-header {
+  margin-top: -4.5rem;
+}
+
+.nickname-header{
+  font-size: 21px;
+}
+
+.game-button {
+  font-size: 40px;
+  border-radius: 12px;
+  padding: 0 7px 0 7px;
+  font-weight: 600;
+  margin: 10px 10px 10px 10px;
+  transition: 0.3s;
+}
+.game-button:hover {
+  margin: 10px 10px 10px 10px;
+  font-size: 45px;
+  border-radius: 12px;
+  padding: 0 7px 0 7px;
+  font-weight: 600;
+  transition: 0.3s;
+}
+.navigate-link{
+  font-size: 38px;
+  text-decoration: none;
+  font-weight: 800;
 }

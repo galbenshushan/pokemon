@@ -55,6 +55,7 @@ const NicknameContainer = ({ pokemon, location, onNickname, dynamicText }) => {
               style={dynamicText}
               variant="outline-secondary"
               id="button-addon2"
+              className="nickname-header"
             >
               Give {toUpper(pokemon.name)} a Nickname?
             </Button>
@@ -69,6 +70,7 @@ const NicknameContainer = ({ pokemon, location, onNickname, dynamicText }) => {
               placeholder="Your Partner's New Name.."
               aria-label="Your Partner's New Name.."
               aria-describedby="basic-addon2"
+              className="nickname-header"
             />
             <Button
               onClick={nicknameHandler}

@@ -23,14 +23,6 @@ const About = () => {
                     I'm sure you will be great!
                 </div>
                 <br />
-                <div className='textt second' style={{ color: dynamicText, textAlign: 'left' }}>
-
-                    <h2 style={{ color: dynamicText, textAlign: 'left' }}>Soon</h2>
-                    -Poke Tetris game!<br />
-                    -Poke Race game!<br />
-                    -Making your own Avatar Trainer!<br />
-                    -Evolve Pokemon and make them stronger than ever!<br />
-                </div>
             </div>
         </div>
     )
