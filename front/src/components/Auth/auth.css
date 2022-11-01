@@ -1,12 +1,12 @@
 .float-input{
     float: right;
     border-radius: 16px;
-    width: 15rem;
+    width: 28vw;
     height: 2.5rem;
 }
 
 .inp{
-    width: 26rem;
+    width: 45vw;
     padding-left: 1.5rem;
     padding-top: 2rem;
     padding-bottom: 2rem;
@@ -31,6 +31,10 @@
 }
 .buttn{
     margin-top: 2rem;
+}
+
+.auth{
+    width: 55vw !important;
 }
 
 .auth:hover{

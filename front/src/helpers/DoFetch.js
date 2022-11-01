@@ -9,5 +9,6 @@ export const doFetch = async (url, body, method) => {
       "Access-Control-Allow-Origin": "*",
     },
   });
-  return res;
+  const data = await res.json();
+  return data;
 };

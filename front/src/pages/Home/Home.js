@@ -73,6 +73,7 @@ const Home = () => {
         </div>
         <div>
           <img
+          alt=""
             className="second"
             style={{ width: "25rem", float: "right" }}
             src={oak}
